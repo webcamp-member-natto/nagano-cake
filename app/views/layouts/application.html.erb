@@ -21,28 +21,28 @@
               </button>
                <div class="collapse navbar-collapse" id="navbarNavDropdown">
                  <ul class="navbar-nav ml-auto">
-                   
+
                    <% if customer_signed_in? %>
                      <li>
                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                          マイページ
                        <%end%>
                      </li>
-  
+
                      <li>
                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                          商品一覧
                        <%end%>
                      </li>
-  
+
                      <li>
                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                          カート
                        <%end%>
                      </li>
-  
+
                      <li>
-                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+                        <%=link_to destroy_customer_session_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                           ログアウト
                         <% end %>
                      </li>
@@ -52,27 +52,27 @@
                          商品一覧
                        <%end%>
                      </li>
-    
+
                      <li>
                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                          会員一覧
                        <%end%>
                      </li>
-    
+
                      <li>
                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                          注文履歴一覧
                        <%end%>
                      </li>
-    
+
                      <li>
                         <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                           ジャンル一覧
                         <% end %>
                      </li>
-                     
+
                      <li>
-                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+                        <%=link_to destroy_customer_session_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                           ログアウト
                         <% end %>
                      </li>
@@ -82,21 +82,21 @@
                          About
                        <%end%>
                      </li>
-    
+
                      <li>
                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                          商品一覧
                        <%end%>
                      </li>
-    
+
                      <li>
-                       <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+                       <%=link_to new_customer_registration_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                          新規登録
                        <%end%>
                      </li>
-    
+
                      <li>
-                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+                        <%=link_to new_customer_session_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                           ログイン
                         <% end %>
                      </li>
@@ -106,11 +106,11 @@
         </div>
       </nav>
     </header>
-    
+
     <main>
       <%= yield %>
     </main>
-    
+
     <footer>
       <div class="container mt-5">
         <div class="row">
