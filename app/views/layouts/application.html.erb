@@ -42,7 +42,7 @@
                      </li>
 
                      <li>
-                        <%=link_to destroy_customer_session_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+                        <%=link_to destroy_customer_session_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" , method: :delete do %>
                           ログアウト
                         <% end %>
                      </li>
@@ -72,7 +72,7 @@
                      </li>
 
                      <li>
-                        <%=link_to destroy_customer_session_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+                        <%=link_to root_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
                           ログアウト
                         <% end %>
                      </li>
