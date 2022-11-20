@@ -21,5 +21,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'items/show'
     get 'items/edit'
   end
+  
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
