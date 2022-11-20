@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # 顧客用
   # URL /customers/sign_in ...
 devise_for :customers, skip: [:passwords], controllers: {
@@ -27,6 +26,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   namespace :public do
     get 'items/index'
     get 'items/show'
+  end
+
+  namespace :public do
+    resources :orders
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

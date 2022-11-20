@@ -1,0 +1,18 @@
+<div class="container">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <h3>注文情報入力</h3>
+  <div>
+    <%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
+      <h3>支払い方法</h3>
+
+        <%= f.radio_button :payment_method, "credit_card" %>
+        <%= f.label :payment_method, "クレジットカード" %>
+
+        <%= f.radio_button :payment_method, "transfer" %>
+        <%= f.label :payment_method, "銀行振込" %>
+    <% end %>
+  </div>
+</div>
