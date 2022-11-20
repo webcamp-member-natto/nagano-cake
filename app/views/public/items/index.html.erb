@@ -1,16 +1,25 @@
 <div class ="container">
  <div class ="row my-5 py-5">
   <div class="col-md-2">
-   <p>ジャンル検索</p>
+   <!--<p>ジャンル検索</p>-->
    </div>
 
    <div class="col-md-8 offset-md-1">
+    <div class="d-flex flex-wrap">
      <h3>商品一覧</h3>
-  
-  
-  
+      <div>(全<%= @items.count %>件)</div>
+       <% @items.each do |item| %>
+        <div class="d-flex flex-wrap">
+        <%= link_to public_item_path(item) do %>
+         <%= image_tag item.image, size: "100x100" %>
+        <% end %>
+       <%= link_to item.name, public_item_path(item)  %>
+        ￥<%= item.price %></p>
+      <% end %>
      </div>
-     <%= paginate @item %>
-     </div>
+  <%= paginate @items%>
     </div>
+   </div>
+  </div>
+ </div>
     

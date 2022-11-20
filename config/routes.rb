@@ -24,8 +24,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
 
   namespace :public do
-    get 'items/index'
-    get 'items/show'
+    resources :items
   end
 
   namespace :public do
