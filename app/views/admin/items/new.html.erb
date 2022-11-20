@@ -1,6 +1,6 @@
 <h3>商品登録</h3>
 
-<%= form_with model: @item do |f| %>
+<%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
 
 <div class="field">
 <%= f.label "商品画像" %>
