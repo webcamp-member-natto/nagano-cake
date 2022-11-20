@@ -35,7 +35,7 @@
     <div class="field">
     <%= f.label "ジャンル" %>
    </th>
-   <td>
+   <td><%=f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name), inclide_blank: '選択してください' %>
    </div></td>
   </tr>
   <tr>
