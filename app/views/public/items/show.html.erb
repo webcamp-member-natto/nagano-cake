@@ -1,2 +1,39 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<table>
+
+  <tbody>
+    <tr>
+      <th>
+        <%= image_tag @item.image, size: "300x300" %>
+      </th>
+
+      <th>
+        商品名:<%= @item.name %>
+      </th>
+     </tr>
+     <tr>
+      <th>
+        商品説明:<%= @item.detail %>
+      </th>
+     </tr>
+     <tr>
+      <th>
+        税込価格(税抜価格): ¥<%=@item.with_tax_price %>(税込)
+      </th>
+     </tr>
+     <%= form_with model: @item, url:カートのパス, method: :post do |f| %>
+    <tr>
+      <th>
+        <%= f.select :quantity, options_from_collection_for_select(Order_Item.all, ), inclide_blank: '個数選択' %>
+      </th>
+    </tr>
+
+     <tr>
+      <th>
+        <p><%= f.submit "カートに入れる", class: 'btn btn-success' %></p>
+      </th>
+     </tr>
+
+
+
+  </tbody>
+ </table>
