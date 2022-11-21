@@ -1,0 +1,30 @@
+<h4>注文情報確認</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">商品名</th>
+      <th scope="col">単価(税込)</th>
+      <th scope="col">数量</th>
+      <th scope="col">小計</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= image_tag @order.item.image %></br>
+        <%= @rder.item.name %>
+      <td><%= @order.item.quantity %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "買い物を続ける", public_items_path %>
+
