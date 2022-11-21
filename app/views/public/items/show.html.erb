@@ -23,7 +23,9 @@
      <%= form_with model: @item, url:カートのパス, method: :post do |f| %>
     <tr>
       <th>
-        <%= f.select :quantity, options_from_collection_for_select(Order_Item.all, ), inclide_blank: '個数選択' %>
+        <%= f.select :quantity, *[1..10] , inclide_blank: '個数選択' %>
+        <%= f.hidden_field :customer_id, :value => current_customer.id %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
       </th>
     </tr>
 
@@ -32,8 +34,7 @@
         <p><%= f.submit "カートに入れる", class: 'btn btn-success' %></p>
       </th>
      </tr>
-
-
+     <% end %>
 
   </tbody>
  </table>
