@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
     <span style="background-color:lightgrey; font-size:30px;">配送先登録/一覧</span>
-          <%= form_with model: @shipping_address, url: public_shipping_addresses_path, method: :post do |f| %>
+          <%= form_with model: @shipping_address, url: public_shipping_address_path, method: :post do |f| %>
               <table>
                  <tr>
                     <div class="field">
