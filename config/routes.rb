@@ -28,7 +28,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
 
   namespace :public do
-    resources :orders
+    get "orders/complete" => "orders#complete", as: "complete"
+    resources :orders, only:[:index,:create,:new,:edit,:show,:update,:destroy]
+
   end
 
    namespace :public do

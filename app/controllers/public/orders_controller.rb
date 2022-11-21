@@ -3,14 +3,20 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
     @customer = current_customer
   end
-  
+
   def create
-  end 
-  
+  end
+
   def index
   end
 
   def show
   end
-  
+
+  def complete
+
+  end
+
+
+
 end
