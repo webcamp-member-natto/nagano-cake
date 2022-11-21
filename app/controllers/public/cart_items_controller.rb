@@ -5,9 +5,7 @@ class Public::CartItemsController < ApplicationController
   end
   
   def create
-    
-  
-  private
+  end
   
   
 end

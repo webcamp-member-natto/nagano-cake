@@ -14,15 +14,17 @@
     </tr>
   </thead>
   <tbody>
+    <% @cart_item.each do |cart_item| %>
     <tr>
       <td>
-        <%= image_tag @order.item.image %></br>
-        <%= @rder.item.name %>
-      <td><%= @order.item.quantity %></td>
-      <td></td>
+        <%= image_tag cart_item.item.image %></br>
+        <%= cart_item.item.name %>
+      <td><%= cart_item.item.quantity %></td>
+      <td><%= %></td>
       <td></td>
       <td></td>
     </tr>
+    <% end %>
   </tbody>
 </table>
 
