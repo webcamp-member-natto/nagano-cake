@@ -1,69 +1,69 @@
 <div class="container" >
- <div class="row">
-  <div class="col">
-<span style="background-color:lightgrey; font-size:30px;">商品編集</span>
-<%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
-
-<table>
- <tbody>
-  <tr>
-   <th>
-    <div class="field">
-    <%= f.label "商品画像" %>
-   </th>
-   <td><%= f.file_field :image, accept: "image/*" %>
-   </div></td>
-  </tr>
-  <tr>
-   <th>
-    <div class="field">
-    <%= f.label "商品名"%>
-   </th>
-   <td><%= f.text_field :name %>
-   </div></td>
-  </tr>
-  <tr>
-   <th>
-    <div class="field">
-    <%= f.label "商品説明"%>
-   </th>
-   <td><%= f.text_area :detail %>
-   </div></td>
-  </tr>
-  <tr>
-   <th>
-    <div class="field">
-    <%= f.label "ジャンル" %>
-   </th>
-   <td><%=f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
-   </div></td>
-  </tr>
-  <tr>
-   <th>
-    <div class="field">
-    <%= f.label "税抜き価格" %>
-   </th>
-   <td><%= f.text_field :price %>
-   </div></td>
-  </tr>
-  <tr>
-   <th>
-    <div class="form-group">
-    <%=f.label:"販売ステータス" %>
-   </th>
-   <td><%= f.radio_button :status, :true %>
-    <%= f.label :status, "販売中", {value: :true, style: "display: inline-block;"} %>
-    <%= f.radio_button :status, :false %>
-    <%= f.label :status, "販売停止中", {value: :false, style: "display: inline-block;"} %>
-   </div></td>
-  </tr>
- </tbody>
-</table>
-
-
-
-<%= f.submit "変更を保存", class: 'btn btn-success' %>
-<% end %>
-</div>
- </div>
+    <div class="row">
+     <div class="col">
+   <span style="background-color:lightgrey; font-size:30px;">商品編集</span>
+   <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+   
+   <table>
+    <tbody>
+     <tr>
+      <th>
+       <div class="field">
+       <%= f.label "商品画像" %>
+      </th>
+      <td><%= f.file_field :image, accept: "image/*" %>
+      </div></td>
+     </tr>
+     <tr>
+      <th>
+       <div class="field">
+       <%= f.label "商品名"%>
+      </th>
+      <td><%= f.text_field :name %>
+      </div></td>
+     </tr>
+     <tr>
+      <th>
+       <div class="field">
+       <%= f.label "商品説明"%>
+      </th>
+      <td><%= f.text_area :detail %>
+      </div></td>
+     </tr>
+     <tr>
+      <th>
+       <div class="field">
+       <%= f.label "ジャンル" %>
+      </th>
+      <td><%=f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
+      </div></td>
+     </tr>
+     <tr>
+      <th>
+       <div class="field">
+       <%= f.label "税抜き価格" %>
+      </th>
+      <td><%= f.text_field :price %>円
+      </div></td>
+     </tr>
+     <tr>
+      <th>
+       <div class="form-group">
+       <%=f.label:"販売ステータス" %>
+      </th>
+      <td><%= f.radio_button :status, :true %>
+       <%= f.label :status, "販売中", {value: :true, style: "display: inline-block;"} %>
+       <%= f.radio_button :status, :false %>
+       <%= f.label :status, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+      </div></td>
+     </tr>
+    </tbody>
+   </table>
+   
+   
+   
+   <%= f.submit "変更を保存", class: 'btn btn-success' %>
+   <% end %>
+   </div>
+    </div>
 </div>
