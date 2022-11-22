@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :orders
+  has_many :shipping_addresses
   
   def active_for_authentication?
     super && (is_deleted == false)

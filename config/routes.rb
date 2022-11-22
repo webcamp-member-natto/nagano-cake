@@ -25,6 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :public do
     resources :items
+    post '/orders/comfirm' => "orders#comfirm", as: 'comfirm'
     get '/orders/complete'  =>  'orders#complete', as: 'complete'
     resources :orders, only: [:new, :create, :index, :show, :edit, :destroy, :update]
     resources :cart_items
