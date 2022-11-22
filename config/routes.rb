@@ -22,6 +22,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   namespace :public do
     resources :items
+    get '/orders/complete'  =>  'orders#complete', as: 'complete'
+    resources :orders, only: [:new, :create, :index, :show, :edit, :destroy, :update]
     resources :cart_items
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: "destroy_all"
   end
