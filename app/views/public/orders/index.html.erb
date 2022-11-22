@@ -24,13 +24,13 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-        <td><%= order.postal_code%>
+        <td><%= order.postal_code %>
         <%= order.address %>
         <%= order.name %></td>
 
         <% order.order_items.each do |order_item| %>
 
-        <td><%= order_item.item_id.name %></td>
+        <td><%= order_item.item.name %></td>
 
         <% end %>
 
