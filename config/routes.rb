@@ -12,18 +12,26 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
- root to: 'homes#top'
+
+  root to: 'homes#top'
   get 'about'=>"homes#about",as: "about"
+
 
   namespace :admin do
     resources :genres
     resources :items
+    resources :customers
   end
 
   namespace :public do
     resources :items
     resources :cart_items
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: "destroy_all"
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    get 'customers/confirm' => "customers#confirm", as: 'confirm'
+    patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
+    patch 'customers/information' => 'customers#update', as: 'information'
   end
 
 
