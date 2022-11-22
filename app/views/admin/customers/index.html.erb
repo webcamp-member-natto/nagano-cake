@@ -10,17 +10,19 @@
     </tr>
   </thead>
   <tbody>
-    <% @customers.eath do |customer| %>
+    <% @customers.each do |customer| %>
     <tr>
       <th scope="row"><%= customer.id %></th>
-      <td><%= customer.last_name %><% customer.first_name %></td>
+      <td>
+        <%= link_to admin_customer_path(customer) do %>
+        <%= customer.last_name %><% customer.first_name %></td>
       <td><%= customer.email %></td>
-      <td>ステータス</td>
+      <% end %>
       <td>
         <% if customer.is_deleted %>
-        退会
+        <p class="text-black-50">退会</p>
         <% else %>
-        有効
+        <p class="text-success">有効</p>
         <% end %>
         </td>
     </tr>

@@ -26,7 +26,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
   protected
 
-  # 会員の論理削除のための記述。退会後は、同じアカウントでは利用できない。
+  
   def reject_user
     @customer = Customer.find_by(name: params[:customer][:name])
     if @customer
@@ -38,5 +38,4 @@ class Public::SessionsController < Devise::SessionsController
       end
     end
   end
-end
 end
