@@ -20,7 +20,7 @@
         税込価格(税抜価格): ¥<%=@item.with_tax_price %>(税込)
       </th>
      </tr>
-     <%= form_with model: @item, url:カートのパス, method: :post do |f| %>
+     <%= form_with model: @cart_item, url:public_cart_items_path, method: :post do |f| %>
     <tr>
       <th>
         <%= f.select :quantity, *[1..10] , inclide_blank: '個数選択' %>
