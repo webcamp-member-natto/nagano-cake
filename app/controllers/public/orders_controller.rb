@@ -24,12 +24,14 @@ class Public::OrdersController < ApplicationController
         @order.postal_code = ShippingAddress.find(params[:order][:address_id]).postal_code
       end
     elsif params[:select_address] == "2"
-      address_new = current_customer.shipping_addresses.new(shipping_address_params)
+      @address_new = current_customer.shipping_addresses.new(shipping_address_params)
       #address_new.costomer_id = current_customer.id
-        if address_new.save
-          @order.address = address_new.address
-          @order.name = address_new.name
-          @order.postal_code = address_new.postal_code
+        if @address_new.save
+          @order.address = @address_new.address
+          @order.name = @address_new.name
+          @order.postal_code = @address_new.postal_code
+        else
+          render :new
         end
     else
       render :new
@@ -40,7 +42,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items.all
     @postage = 800
-    if @order.save!
+    if @order.save
       redirect_to public_complete_path
     else
       #render :comfirm
