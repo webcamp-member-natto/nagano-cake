@@ -9,37 +9,42 @@ class Public::OrdersController < ApplicationController
   def comfirm
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items.all
-    @total_price = current_customer.cart_items.cart_items_total_price(@cart_items)
+    # @total_price = current_customer.cart_itemsの小計を全部合わせたもの
     @postage = 800
-
     @customer = current_customer
     @addresses = current_customer.shipping_addresses
-    if params[:order][:address_select] == "0"
+    if params[:select_address] == "0"
       @order.address = current_customer.address
-      @order.name = current_customer.name
+      @order.name = current_customer.last_name + current_customer.first_name
       @order.postal_code = current_customer.postal_code
-    elsif params[:order][:address_select] == "1"
-      if Address.exists?
-        @order.address = ShippingAddress.find(params[:order][:address]).address
-        @order.name = ShippingAddress.find(params[:order][:address]).name
-        @order.postal_code = ShippingAddress.find(params[:order][:address]).postal_code
+    elsif params[:select_address] == "1"
+      if ShippingAddress.exists?
+        @order.address = ShippingAddress.find(params[:order][:address_id]).address
+        @order.name = ShippingAddress.find(params[:order][:address_id]).name
+        @order.postal_code = ShippingAddress.find(params[:order][:address_id]).postal_code
       end
-    elsif params[:order][:address_select] == "2"
-      address_new = current_customer.addresses.new(address_params)
+    elsif params[:select_address] == "2"
+      address_new = current_customer.shipping_addresses.new(shipping_address_params)
+      #address_new.costomer_id = current_customer.id
         if address_new.save
           @order.address = address_new.address
           @order.name = address_new.name
           @order.postal_code = address_new.postal_code
-          redirect_to public_order_path(@order.id)
         end
     else
-
+      render :new
     end
   end
 
   def create
     @order = Order.new(order_params)
     @cart_items = current_customer.cart_items.all
+    @postage = 800
+    if @order.save!
+      redirect_to public_complete_path
+    else
+      #render :comfirm
+    end
   end
 
   def index
@@ -54,11 +59,11 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :price)
+    params.require(:order).permit(:customer_id, :postal_code, :address, :name, :payment_method, :price, :postage)
   end
 
   def shipping_address_params
-  params.require(:shipping_address).permit(:name, :address, :postal_code)
+  params.require(:order).permit(:name, :address, :postal_code)
   end
 
 end
