@@ -2,6 +2,14 @@
     <div class="row">
      <div class="col">
    <span style="background-color:lightgrey; font-size:30px;">商品編集</span>
+   <% if @item.errors.any? %>
+  <%= @item.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
    <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
    
    <table>
