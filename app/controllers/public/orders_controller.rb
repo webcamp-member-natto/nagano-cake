@@ -8,18 +8,21 @@ class Public::OrdersController < ApplicationController
 
   def comfirm
     @order = Order.new(order_params)
+    @cart_items = current_customer.cart_items.all
+    @total_price = current_customer.cart_items.cart_items_total_price(@cart_items)
+    @postage = 800
 
     @customer = current_customer
     @addresses = current_customer.shipping_addresses
     if params[:order][:address_select] == "0"
-      @order.address=current_customer.address
-      @order.name=current_customer.name
-      @order.postal_code=current_customer.postal_code
+      @order.address = current_customer.address
+      @order.name = current_customer.name
+      @order.postal_code = current_customer.postal_code
     elsif params[:order][:address_select] == "1"
       if Address.exists?
+        @order.address = ShippingAddress.find(params[:order][:address]).address
         @order.name = ShippingAddress.find(params[:order][:address]).name
         @order.postal_code = ShippingAddress.find(params[:order][:address]).postal_code
-        @order.address = ShippingAddress.find(params[:order][:address]).address
       end
     elsif params[:order][:address_select] == "2"
       address_new = current_customer.addresses.new(address_params)
@@ -35,6 +38,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    @cart_items = current_customer.cart_items.all
   end
 
   def index

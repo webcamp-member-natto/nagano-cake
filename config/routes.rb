@@ -36,6 +36,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/confirm' => "customers#confirm", as: 'confirm'
     patch 'customers/withdraw' => 'customers#withdraw', as: 'withdraw'
     patch 'customers/information' => 'customers#update', as: 'information'
+    resources :shipping_addresses
   end
 
 

@@ -1,1 +1,66 @@
-<h4>ここコンファームページ</h4>
+<div class="container">
+        <span style="background-color:lightgrey; font-size:30px;">注文情報確認</span>
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">商品名</th>
+                      <th scope="col">単価(税込)</th>
+                      <th scope="col">数量</th>
+                      <th scope="col">小計</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @cart_items.each do |cart| %>
+                      <tr>
+                        <td>
+                        <%= image_tag cart.item.image, size: "50x50"%> <%= cart.item.name %>
+                        </td>
+                        <td><%= cart.item.with_tax_price.to_s(:delimited) %></td>
+                        <td><%= cart.quantity %></td>
+                        <td><%= cart.subtotal.to_s %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+              </table>
+
+              <table class="table">
+                <tbody>
+                  <tr>
+                  <th scope="col">送料</th>
+                  <td>¥<%= @postage.to_s(:delimited) %></td>
+                  <th scope="col">商品合計</th>
+                  <td>¥<%= @total_price.to_s(:delimited) %></td>
+                  <th scope="col">請求金額</th>
+                  <td>¥<%= (@total_price + @postage).to_s(:delimited) %></td>
+                  </tr>
+                </tbody>
+              </table>
+              <table>
+                   <tbody>
+                      <tr>
+                        <div class="field">
+                          <th>支払方法</th>
+                          <td><%= @order.payment_method_i18n %></td>
+                        </div>
+                      </tr>
+                      <tr>
+                        <div class="field">
+                          <th>お届け先</th>
+                          <td>〒<%= @order.postal_code %>　<%= @order.address %><br>
+                              <%= @order.name %>
+                          </td>
+                        </div>
+                      </tr>
+                  </tbody>
+              </table>
+
+          <div ciass="row text-center">
+              <!-- ユーザーには注文確定ボタンだけ表示 -->
+              <%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
+                <%= f.hidden_field :name %>
+                <%= f.hidden_field :address %>
+                <%= f.hidden_field :total_price, value: @total %>
+                <%= f.submit "注文を確定する", class:'btn btn-primary' %>
+              <% end %>
+          </div>
+</div>
