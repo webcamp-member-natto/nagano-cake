@@ -1,11 +1,20 @@
 <div class="container">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <span style="background-color:lightgrey; font-size:30px;">配送先編集</span>
+  <div class="row">
+    <div class="col">
+      <h4 class="m-4 text-left font-weight-bold">配送先編集</h4>
+      <% if @shipping_address.errors.any? %>
+        <%= @shipping_address.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @shipping_address.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
           <%= form_with model: @shipping_address, url: public_shipping_address_path, method: :patch do |f| %>
-              <table>
+          <div class="-flex align-items-center" >
+              <table style="text-align:center">
                  <tr>
                     <div class="field">
                       <th><%= f.label "郵便番号(ハイフンなし)" %></th>
@@ -25,6 +34,7 @@
                     </div>
                  </tr>
                </table>
+               </div>
                <%= f.submit "変更内容を保存", class: 'btn btn-success' %>
           <% end %>
 </div>

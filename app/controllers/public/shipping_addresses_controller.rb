@@ -11,6 +11,7 @@ class Public::ShippingAddressesController < ApplicationController
     if @shipping_address.save
       redirect_to public_shipping_addresses_path(@shipping_address.id)
     else
+      @shipping_addresses = current_customer.shipping_addresses
       render :index
     end
   end
