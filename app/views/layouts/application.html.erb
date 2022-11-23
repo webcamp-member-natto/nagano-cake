@@ -24,7 +24,9 @@
 
                    <% if customer_signed_in? %>
                      <li>
-                       <%=link_to  public_customers_my_page_path(current_customer), class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+
+                       <%=link_to  public_customers_my_page_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
+
                          マイページ
                        <%end%>
                      </li>
