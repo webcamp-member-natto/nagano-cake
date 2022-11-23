@@ -1,8 +1,4 @@
 <div class="container">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
     <span style="background-color:lightgrey; font-size:30px;">注文情報入力</span>
   <div>
         <%= form_with model: @order, url:public_comfirm_path do |f| %>
@@ -38,13 +34,13 @@
                  <tr>
                     <div class="field">
                       <th><%= f.label "住所" %></th>
-                      <td><%= f.text_field :address,placeholder: "東京都渋谷区代々木神園町0-0" %></td>
+                      <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0" %></td>
                     </div>
                  </tr>
                  <tr>
                     <div class="field">
                       <th><%= f.label "宛名" %></th>
-                      <td><%= f.text_field :address,placeholder: "令和道子"%></td>
+                      <td><%= f.text_field :name, placeholder: "令和道子"%></td>
                     </div>
                  </tr>
                </table>
