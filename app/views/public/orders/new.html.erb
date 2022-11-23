@@ -1,6 +1,22 @@
 <div class="container">
     <span style="background-color:lightgrey; font-size:30px;">注文情報入力</span>
   <div>
+
+    <% if @order.errors.any? %>
+      <%= @order.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% elsif @address_new %>
+    <ul>
+        <% @address_new.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+    </ul>
+    <% end %>
+
         <%= form_with model: @order, url:public_comfirm_path do |f| %>
           <h4>支払い方法</h4>
 
