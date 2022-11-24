@@ -43,6 +43,14 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items.all
     @postage = 800
     if @order.save
+      @cart_items.each do |cart_item|
+        @order_item = OrderItem.new
+        @order_item.order_id = @order.id
+        @order_item.item_id = cart_item.item.id
+        @order_item.quantity = cart_item.quantity
+        @order_item.price = cart_item.item.price
+        @order_item.save
+      end
       redirect_to public_complete_path
     else
       #render :comfirm
