@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
   def index
-    @items = Item.page(params[:page])
+    @items = Item.page(params[:page]).all
   end
 
   def new
@@ -19,7 +19,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item =Item.find(params[:id])
-    
+
   end
 
   def edit
