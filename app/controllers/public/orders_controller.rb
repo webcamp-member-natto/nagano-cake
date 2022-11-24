@@ -51,7 +51,6 @@ class Public::OrdersController < ApplicationController
         @order_item.price = cart_item.item.price
         @order_item.save
       end
-        
       redirect_to public_complete_path
     else
       #render :comfirm
