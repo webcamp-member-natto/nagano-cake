@@ -50,18 +50,17 @@ class Public::OrdersController < ApplicationController
         @order_item.order_id = @order.id
         @order_item.item_id = cart_item.item.id
         @order_item.quantity = cart_item.quantity
-        @order_item.price = cart_item.item.price
+        @order_item.price = cart_item.item.with_tax_price
         @order_item.save
       end
       redirect_to public_complete_path
-      @cart_items.destroy_all
     else
-      # render :comfirm
+      #render :comfirm
     end
   end
 
   def index
-    @orders = current_customer.orders.all
+    @orders = Order.all
   end
 
   def show
