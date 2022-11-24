@@ -1,18 +1,19 @@
 <div class="container" >
- <div class="row">
-  <div class="col">
-<span style="background-color:grey; font-size:30px;">商品登録</span>
-<% if @item.errors.any? %>
-  <%= @item.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @item.errors.full_messages.each do |message| %>
+  <div class="row">
+　 <h4 class="col-lg-3 mb-5 mt-3 d-flex mx-auto">
+    <span class="py-2 px-4 bg-ligh alert-secondary">商品登録</span></h4>
+    <% if @item.errors.any? %>
+     <%= @item.errors.count %>件のエラーが発生しました
+    <ul>
+     <% @item.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
   </ul>
 <% end %>
+</div>
 <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
 
-<table>
+<table style="margin:auto;">
  <tbody>
   <tr>
    <th>
@@ -65,13 +66,12 @@
     <%= f.label :status, "販売停止中", {value: :false, style: "display: inline-block;"} %>
    </div></td>
   </tr>
- </tbody>
-</table>
-
-
-
-<%= f.submit "新規登録", class: 'btn btn-success' %>
+  <tr>
+   <th></th>
+   <td><%= f.submit "新規登録", class: 'btn btn-success' %></td>
+  </tr>
 <% end %>
+</tbody>
+</table>
 </div>
- </div>
-</div>
+ 

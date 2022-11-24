@@ -1,18 +1,20 @@
-<div class="container" >
-    <div class="row">
-     <div class="col">
-   <span style="background-color:lightgrey; font-size:30px;">商品編集</span>
-   <% if @item.errors.any? %>
-  <%= @item.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @item.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-   <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+<div class='container'>
+ <div class="row">
+　<h4 class="col-lg-3 mb-5 mt-3 d-flex mx-auto">
+   <span class="py-2 px-4 bg-ligh alert-secondary">商品詳細</span></h4>
    
-   <table>
+     <% if @item.errors.any? %>
+      <%= @item.errors.count %>件のエラーが発生しました
+      <ul>
+       <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+       <% end %>
+      </ul>
+     <% end %>
+  </div>
+  
+  <table style="margin:auto;">
+   <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
     <tbody>
      <tr>
       <th>
@@ -65,13 +67,13 @@
        <%= f.label :status, "販売停止中", {value: :false, style: "display: inline-block;"} %>
       </div></td>
      </tr>
+     <tr>
+      <th></th>
+      <td><%= f.submit "変更を保存", class: 'btn btn-success' %></td>
+     </tr>
     </tbody>
    </table>
-   
-   
-   
-   <%= f.submit "変更を保存", class: 'btn btn-success' %>
    <% end %>
    </div>
-    </div>
+  </div>
 </div>

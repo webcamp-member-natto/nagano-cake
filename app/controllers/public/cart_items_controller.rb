@@ -16,9 +16,9 @@ class Public::CartItemsController < ApplicationController
       @cart_item = CartItem.new(cart_item_params)
     end
     @cart_item.customer_id = current_customer.id
-    if @cart_item.save
-    redirect_to public_cart_items_path
-    end
+     if @cart_item.save
+     redirect_to public_cart_items_path
+     end
   end
 
   def update
