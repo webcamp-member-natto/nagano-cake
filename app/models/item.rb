@@ -3,6 +3,7 @@ class Item < ApplicationRecord
  belongs_to :genre, optional: true
 
  has_many :cart_items
+ has_many :order_items
 
 
  validates :image, presence: true
@@ -14,6 +15,7 @@ class Item < ApplicationRecord
  def with_tax_price
   (price*1.1).floor
  end
+
 
 
 end

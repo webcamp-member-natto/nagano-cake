@@ -20,7 +20,7 @@ class Public::CartItemsController < ApplicationController
      redirect_to public_cart_items_path
      end
   end
-  
+
   def update
     @cart_item = CartItem.find(params[:id])
     @cart_item.update(cart_item_params)

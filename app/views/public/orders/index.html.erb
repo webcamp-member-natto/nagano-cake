@@ -37,7 +37,7 @@
 
         <td><%= order.price %>円</td>
         <td><%= order.order_status %></td>
-        <td><%= link_to "表示する", edit_public_order_path(order.id) %></td>
+        <td><%= link_to "表示する", public_order_path(order.id) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -26,7 +26,7 @@
   <tbody>
       <tr>
 
-        <td>商品合計<%= @order.price -= @order.postage %></td>
+        <td>商品合計<%= @order.price - @order.postage %></td>
         <td>配送料<%= @order.postage %></td>
         <td>ご請求額<%= @order.price %></td>
 
