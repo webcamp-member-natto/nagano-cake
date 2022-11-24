@@ -1,4 +1,6 @@
 class Public::ShippingAddressesController < ApplicationController
+  
+  before_action :authenticate_customer!
 
   def index
     @shipping_addresses = current_customer.shipping_addresses
@@ -9,7 +11,7 @@ class Public::ShippingAddressesController < ApplicationController
     @shipping_address = ShippingAddress.new(shipping_addresses_params)
     @shipping_address.customer_id = current_customer.id
     if @shipping_address.save
-      redirect_to public_shipping_addresses_path(@shipping_address.id)
+      redirect_to public_shipping_addresses_path(@shipping_address.id), notice: "新規登録完了しました"
     else
       @shipping_addresses = current_customer.shipping_addresses
       render :index
@@ -24,7 +26,7 @@ class Public::ShippingAddressesController < ApplicationController
     @shipping_address = ShippingAddress.find(params[:id])
     @shipping_address.update(shipping_addresses_params)
     if @shipping_address.save
-      redirect_to public_shipping_addresses_path
+      redirect_to public_shipping_addresses_path, notice: "更新完了しました。"
     else
       render :edit
     end

@@ -1,28 +1,33 @@
-<h4>ログイン</h4>
-<p>会員の方はこちらからログイン</p>
+<div class="container">
+  <h3 class="col-7 my-5"><span class="alert-secondary">ログイン</span></h3>
+   <div class="row">
+    <p class="alert-secondary ml-5 mr-5">会員の方はこちらからログイン<p>
+   </div>
+   
+   
+   <%= form_with model: @customer, url: customer_session_path do |f| %>
+  <div class="form-group row ml-5">
+    <%= f.label :"メールアドレス" , class: "col-sm-3 control-label" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "sample@example.com", class: "col-sm-4 form-control-static" %>
+  </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
-<table>
-  <tr>
-   <div class="field">
-   <th><%= f.label "メールアドレス"%></th>
-   <td><%= f.email_field :email,placeholder: "sample@exaple.com" %></td>
-  </tr>
-  <tr>
-  <div class="field">
-    <th><%= f.label "パスワード" %></th>
-    <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+  <div class="form-group row ml-5">
+    <%= f.label :"パスワード", class: "col-sm-3 control-label" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "col-sm-4 form-control-static" %>
   </div>
-  </tr>
-  <tr>
-  <div class="actions">
-    <tr></tr>
-    <td><%= f.submit "ログイン" %></td>
+
+  <div class="actions col-8 text-center">
+    <%= f.submit "ログイン",class: 'btn btn-primary' %>
   </div>
-  </tr>
-  </table>
+
 <% end %>
 
-<h4>登録がお済みでなグインい方</h4>
-<p><%= render "public/shared/links" %>から新規登録を行ってください。</p>
+  <div class="row ml-5 mt-3">
+    <p class="alert-secondary">会員登録がお済みでない方<p>
+  </div>
+
+  <div class="row">
+    <div class="col-4 offset-3">
+      <%= link_to "こちら", new_customer_registration_path %> から新規登録を行ってください。
+    </div>
+  </div>

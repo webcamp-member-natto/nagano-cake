@@ -34,8 +34,7 @@
     <h3 style="padding:10px;"><strong>新着商品</strong></h3>
   </div>
   
-  <div class="row">
-   <div class="col-md-9 offset-md-3 d-flex">
+  <div class="row mt-2 ml-2 mx-10">
     <% @item_new.first(4).each do |item| %>
      <%= link_to public_item_path(item) do %>
       <div class="card mx-2" style="width: 250px; height:150;">
@@ -48,8 +47,8 @@
       <% end %>
      <% end %>
     </div>
-     <div class="col-md-9 offset-md-3 text-right">
+      <div class="col-md-9 offset-md-3 text-right">
           <%= link_to "全ての商品を見る＞", "/public/items"%>
-     </div>
+    </div>
    </div>
   </div>
