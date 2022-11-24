@@ -20,11 +20,12 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                 <ul class="navbar-nav ml-auto">
+                 <ul class="navbar-nav ml-auto ">
 
                    <% if customer_signed_in? %>
+                    <div class = "d-flex align-items-end">ようこそ、<%= current_customer.last_name %>さん!</div>
                      <li>
-
+                      
                        <%=link_to  public_customers_my_page_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
 
                          マイページ
