@@ -19,11 +19,12 @@
         <tr>
           <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>〒<%= order.postal_code %><br>
-          <%= order.address %><br>
-          <%= order.name %></td>
+              <%= order.address %><br>
+              <%= order.name %>
+          </td>
           <td align="left">
           <% order.order_items.each do |order_item| %>
-　　　　　<%= order_item.item.name%><br>
+          <%= order_item.item.name%><br>
           <% end %>
           </td>
 
