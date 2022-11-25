@@ -6,7 +6,7 @@
     </div>
     <div class="row">
       <div class="col mt-5 mb-1 text-light">
-      <%= link_to "カートを空にする",  public_destroy_all_path,class: "btn btn-danger", method: :delete %>
+      <%= link_to "カートを空にする",  public_destroy_all_path,class: "btn btn-danger", method: :delete, method: :delete,  "data-confirm" => "本当に削除しますか？"  %>
       </div>
     </div>
     <table class="table">

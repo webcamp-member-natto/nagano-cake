@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="row my-5 py-5 ">
+  <div class="row py-5 ">
     <div class="col-md-2 ">
       <table class="table table-bordered">
         <thead>
@@ -17,38 +17,44 @@
         </tbody>
       </table>
     </div>
-  <div class="col-md-9 offset-1 ">
-   <div style="background: url(<%= asset_path "top.jpg" %>);">
-   <div class="container col-8 text-center" style="background-color:rgba(255,255,255,0.5);">
-    <h3 style="color:black;padding-top:10px"><strong>ようこそ、ながのCAKEへ！</strong></h3><br />
-    <p style=padding-bottom:10px>
-      このサイトは、ケーキ販売のECサイトになります。<br />
-      会員でない方も商品の閲覧はできますが、<br />
-      購入には会員登録が必要になります。
-    </p>
+     <div class="col-md-9 offset-1 ">
+     <div class="pt-5 img-fluid" style="background: url(<%= asset_path "top.jpg" %>); background-size: auto; height: 100%;">
+      <div class="container col-8 py-3 mt-5 text-center" style="background-color:rgba(255,255,255,0.5);">
+       <h3 style="color:black;padding-top:10px"><strong>ようこそ、ながのCAKEへ！</strong></h3><br />
+        <p style=padding-bottom:10px><strong>
+       このサイトは、ケーキ販売のECサイトになります。<br />
+       会員でない方も商品の閲覧はできますが、<br />
+       購入には会員登録が必要になります。
+       </strong></p>
+      </div>
+     </div>
+    </div>
+   </div>
+  <div>
+  <div class="row-md-9 offset-md-3 p-3 text-start">
+
+    <h3><strong>新着商品</strong></h3>
    </div>
   </div>
- </div>
+
   <div class="row">
-   <div class="col-md-9 offset-md-3">
-    <h3 style="padding:10px;"><strong>新着商品</strong></h3>
-  </div>
-  
-  <div class="row mt-2 ml-2 mx-10">
+   <div class="col-md-12 d-flex">
     <% @item_new.first(4).each do |item| %>
      <%= link_to public_item_path(item) do %>
-      <div class="card mx-2" style="width: 250px; height:150;">
+      <div class="card mx-2 " style="width: 15rem; height: 15rem;">
         <%= image_tag item.image,class: "card-img-top", size: "150x150" %>
          <div class="card-body text-center">
           <h5 class="card-title text-dark"><%= item.name %></h5>
           <p class="card-text text-dark"><%= item.price.to_s(:delimited) %>円</p>
-        </div>
+         </div>
        </div>
       <% end %>
      <% end %>
     </div>
-      <div class="col-md-9 offset-md-3 text-right">
+   </div>
+      <div class="row pr-5">
+        <div class="col-md-12 text-right mt-3 mr-5 pr-5">
           <%= link_to "全ての商品を見る＞", "/public/items"%>
-    </div>
+      </div>
    </div>
   </div>
