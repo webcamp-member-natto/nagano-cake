@@ -54,6 +54,7 @@ class Public::OrdersController < ApplicationController
         @order_item.save
       end
       redirect_to public_complete_path
+      @cart_items.destroy_all
     else
       #render :comfirm
     end
