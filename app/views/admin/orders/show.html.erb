@@ -26,7 +26,7 @@
         <%= @order.address %>
         <%= @order.name %></td>
 
-        <td><%= @order.payment_method %></td>
+        <td><%= @order.payment_method_i18n  %></td>
         <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
         <td><%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]}, include_blank: "選択して下さい" %>
 
@@ -58,7 +58,7 @@
         <td><%= order_item.price * order_item.quantity %></td>
 
         <%= form_with model: order_item, url: admin_order_detail_path(order_item.id), method: :patch do |f| %>
-        <td><%= f.select :production_status, OrderItem.production_statuses.keys.map %>
+        <td><%= f.select :production_status, OrderItem.production_statuses.keys.map {|k| [I18n.t("enums.order_item.production_status.#{k}"), k]}, include_blank: "選択して下さい" %>
         <%= f.submit "更新", class: 'btn btn-success' %>
         </td>
         <% end %>
