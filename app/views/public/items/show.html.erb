@@ -35,7 +35,7 @@
        <th><%= @item.detail %></th>
       </tr>
       <tr>
-       <th><strong>¥<%=@item.with_tax_price %>(税込)</strong></th>
+       <th><strong>¥<%=@item.with_tax_price.to_s(:delimited) %>(税込)</strong></th>
       </tr>
      <tr>
        <td>
