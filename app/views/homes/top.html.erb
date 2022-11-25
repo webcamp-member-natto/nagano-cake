@@ -1,6 +1,6 @@
 
 <div class="container">
-  <div class="row py-5 ">
+  <div class="row py-3">
     <div class="col-md-2 ">
       <table class="table table-bordered">
         <thead>
@@ -10,7 +10,7 @@
         </thead>
         <tbody>
           <% @genres.each do |genre| %>
-          <tr>
+          <tr class="text-center">
               <td scope="row"><%= genre.name %></td>
           </tr>
           <% end %>
@@ -18,7 +18,7 @@
       </table>
     </div>
      <div class="col-md-9 offset-1 ">
-     <div class="pt-5 img-fluid" style="background: url(<%= asset_path "top.jpg" %>); background-size: auto; height: 100%;">
+     <div class="pt-5 img-fluid" style="background: url(<%= asset_path "top.jpg" %>); background-size: cover; height: 100%;">
       <div class="container col-8 py-3 mt-5 text-center" style="background-color:rgba(255,255,255,0.5);">
        <h3 style="color:black;padding-top:10px"><strong>ようこそ、ながのCAKEへ！</strong></h3><br />
         <p style=padding-bottom:10px><strong>

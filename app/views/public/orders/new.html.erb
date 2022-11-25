@@ -1,21 +1,22 @@
 <div class="container">
     <h3 class="text-center my-4">注文情報入力</h3>
 
-  <div>
-    <% if @order.errors.any? %>
-      <%= @order.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @order.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+      <div>
+        <% if @order.errors.any? %>
+          <%= @order.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @order.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% elsif @address_new %>
+        <ul>
+            <% @address_new.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+        </ul>
         <% end %>
-      </ul>
-    <% elsif @address_new %>
-    <ul>
-        <% @address_new.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-    </ul>
-    <% end %>
+      </div>
 
 
         <%= form_with model: @order, url:public_comfirm_path do |f| %>
@@ -32,7 +33,7 @@
                 <%= f.label :payment_method, "銀行振込" %>
               </td>
             </tr>
-            
+
             <tr>
               <th>
                 <h5><strong>お届け先</strong></h5>
@@ -46,7 +47,7 @@
                   </div>
               </td>
             </tr>
-            
+
             <tr>
               <th></th>
               <td>
@@ -57,7 +58,7 @@
                 </div>
               </td>
             </tr>
-            
+
             <tr>
               <th></th>
               <td>
@@ -87,12 +88,9 @@
                 </div>
               </td>
             </tr>
-            <tr>
-              <th>
-                <%= f.submit "確認画面へ進む", class: 'btn btn-primary' %>
-              </th>
-            </tr>
           </table>
-    <% end %>
-  </div>
+          <div style="text-align:center;">
+            <%= f.submit "確認画面へ進む", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
 </div>
