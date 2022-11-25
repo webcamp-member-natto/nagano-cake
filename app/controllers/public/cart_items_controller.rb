@@ -1,5 +1,5 @@
 class Public::CartItemsController < ApplicationController
-  
+
 
 
   def index
