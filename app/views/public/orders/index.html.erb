@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container py-5">
 
-  <h4 class="text-center my-4">注文履歴一覧</h4>
+  <h2 class="text-center my-4 "><strong>注文履歴一覧</strong></h2>
 
    <table class="table table-bordered">
     <thead class="table-secondary text-center">
@@ -17,19 +17,19 @@
     <tbody class="text-center" style="color:white;">
       <% @orders.each do |order| %>
         <tr>
-          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-          <td>〒<%= order.postal_code %><br>
+          <td style="vertical-align: middle;"><%= order.created_at.strftime('%Y/%m/%d') %></td>
+          <td style="vertical-align: middle;"〒<%= order.postal_code %><br>
               <%= order.address %><br>
               <%= order.name %>
           </td>
-          <td align="left">
+          <td align="left" style="vertical-align: middle;">
           <% order.order_items.each do |order_item| %>
           <%= order_item.item.name%><br>
           <% end %>
           </td>
 
-          <td><%= order.price.to_s(:delimited) %>円</td>
-          <td><%= order.order_status_i18n %></td>
+          <td style="vertical-align: middle;"><%= order.price.to_s(:delimited) %>円</td>
+          <td style="vertical-align: middle;"><%= order.order_status_i18n %></td>
           <td><%= link_to "表示する", public_order_path(order.id), class: "btn btn-outline-success"%></td>
         </tr>
       <% end %>

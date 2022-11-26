@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container py-5">
    <%= flash[:notice] %>
   <div class="row">
     <div class="col">
-      <h4 class="m-4 text-center font-weight-bold">配送先登録/一覧</h4>
+      <h2 class="m-4 text-center font-weight-bold"><strong>配送先登録/一覧</strong></h2>
 
        <% if @shipping_address.errors.any? %>
         <%= @shipping_address.errors.count %>件のエラーが発生しました
@@ -15,7 +15,7 @@
     </div>
   </div>
     <%= form_with model: @shipping_address, url: public_shipping_addresses_path, method: :post do |f| %>
-     <table>
+     <table class="table table-bordered" style="color:white;">
         <tr>
            <div class="field">
              <th class="text-center"><%= f.label "郵便番号(ハイフンなし)" %></th>
@@ -47,7 +47,7 @@
            <th colspan="3"></th>
          </tr>
        </thead>
-       <tbody>
+       <tbody  class="text-center" style="color:white;">
        <% @shipping_addresses.each do |shipment| %>
          <tr>
           <td><%= shipment.postal_code %></td>

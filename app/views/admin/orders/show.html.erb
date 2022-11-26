@@ -1,28 +1,28 @@
-<div class="container">
-    <h4 class="text-center my-4">注文履歴詳細</h4>
+<div class="container py-5">
+    <h2 class="text-center my-4 fw-bold"><strong>注文履歴詳細</strong></h2>
 
       <table class="table table-bordered" style="color:white;">
         <tbody>
           <tr>
-            <th class="table-secondary text-center">購入者</th>
-            <td><%= link_to @order.name , admin_customer_path(@order.customer.id) %></td>
+            <th class="table-secondary text-center" style="color:black;">購入者</th>
+            <td><%= link_to @order.name , admin_customer_path(@order.customer.id),class: "text-white" %></td>
           </tr>
           <tr>
-            <th class="table-secondary text-center">注文日</th>
+            <th class="table-secondary text-center" style="color:black;">注文日</th>
             <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
           <tr>
-            <th class="table-secondary text-center">配送先</th>
+            <th class="table-secondary text-center" style="color:black; vertical-align: middle; ">配送先</th>
             <td>〒<%= @order.postal_code %>　<%= @order.address %><br>
                 <%= @order.name %>
             </td>
           </tr>
           <tr>
-            <th class="table-secondary text-center">支払方法</th>
+            <th class="table-secondary text-center" style="color:black;">支払方法</th>
             <td><%= @order.payment_method_i18n  %></td>
           </tr>
           <tr>
-            <th class="table-secondary text-center">注文ステータス</th>
+            <th class="table-secondary text-center" style="color:black;">注文ステータス</th>
             <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
               <td>
                 <%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]}, include_blank: "選択して下さい" %>
@@ -38,11 +38,11 @@
             <table class="table table-bordered mt-4" style="color:white;">
               <thead>
                 <tr class="table-secondary text-center">
-                  <th>商品名</th>
-                  <th>単価（税込）</th>
-                  <th>数量</th>
-                  <th>小計</th>
-                  <th>製作ステータス</th>
+                  <th style="color:black;">商品名</th>
+                  <th style="color:black;">単価（税込）</th>
+                  <th style="color:black;">数量</th>
+                  <th style="color:black;">小計</th>
+                  <th style="color:black;">製作ステータス</th>
                 </tr>
               </thead>
               <tbody>
@@ -68,15 +68,15 @@
           <table class="table table-bordered mt-4" style="color:white;">
               <thead>
                   <tr>
-                    <th class="table-secondary text-center">商品合計</th>
+                    <th class="table-secondary text-center"style="color:black;">商品合計</th>
                     <td><%= (@order.price - @order.postage).to_s(:delimited) %>円</td>
                   </tr>
                   <tr>
-                    <th class="table-secondary text-center">送料</th>
+                    <th class="table-secondary text-center"style="color:black;">送料</th>
                     <td><%= @order.postage.to_s(:delimited) %>円</td>
                   </tr>
                   <tr>
-                    <th class="table-secondary text-center">請求金額</th>
+                    <th class="table-secondary text-center"style="color:black;">請求金額</th>
                     <td><%= @order.price.to_s(:delimited) %>円</td>
                   </tr>
               </thead>
