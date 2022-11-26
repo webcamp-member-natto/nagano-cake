@@ -51,7 +51,7 @@
                       <td><%= order_item.item.name %></td>
                       <td><%= order_item.price.to_s(:delimited) %>円</td>
                       <td><%= order_item.quantity %></td>
-                      <td><%= order_item.price * order_item.quantity %>円</td>
+                      <td><%= (order_item.price * order_item.quantity).to_s(:delimited) %>円</td>
 
                       <%= form_with model: order_item, url: admin_order_detail_path(order_item.id), method: :patch do |f| %>
                         <td><%= f.select :production_status, OrderItem.production_statuses.keys.map {|k| [I18n.t("enums.order_item.production_status.#{k}"), k]}, include_blank: "選択して下さい" %>
@@ -69,11 +69,11 @@
               <thead>
                   <tr>
                     <th class="table-secondary text-center">商品合計</th>
-                    <td><%= @order.price - @order.postage %>円</td>
+                    <td><%= (@order.price - @order.postage).to_s(:delimited) %>円</td>
                   </tr>
                   <tr>
                     <th class="table-secondary text-center">送料</th>
-                    <td><%= @order.postage %>円</td>
+                    <td><%= @order.postage.to_s(:delimited) %>円</td>
                   </tr>
                   <tr>
                     <th class="table-secondary text-center">請求金額</th>
