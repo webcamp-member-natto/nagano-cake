@@ -17,28 +17,23 @@
       </table>
     </div>
 
-
-   <div class="col-md-9 offset-md-1">
-    <div class="d-flex flex-wrap">
-       <h4><strong>商品一覧</strong></h4>
-      <div>(全<%= @items.count %>件)</div>
-       </div>
-       <div class="d-flex flex-wrap">
-       <% @items.each do |item| %>
-       <div style="margin-right: 10px;">
-        <% if item.status == true %>
+    <div class="col-md-8 offset-md-1">
+      <div class="d-flex flex-wrap">
+        <h3><strong>商品一覧</strong></h3>
+        <div>(全<%= @items.count %>件)</div>
+      </div>
+      <div class="d-flex flex-wrap">
+        <% @items.each do |item| %>
+        <div style="margin-right: 10px;">
           <%= link_to public_item_path(item) do %>
            <%= image_tag item.image, size: "150x150" %>
           <% end %>
-           <p><%= link_to item.name, public_item_path(item),class: "text-white font-weight-bold"%></p>
-           <p class="font-weight-bold">￥<%= item.price.to_s(:delimited) %></p>
+          <p><strong><%= link_to item.name, public_item_path(item), class: "text-white font-weight-bold"%></strong></p>
+          <p><strong>¥<%= item.price.to_s(:delimited)  %></strong></p>
+        </div>
         <% end %>
-       </div>
-     <% end %>
+      </div>
+        <%= paginate @items %>
     </div>
-    <div style="text-align: center;" >
-  <%= paginate @items %>
-   </div>
-   </div>
   </div>
- </div>
+</div>

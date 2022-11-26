@@ -1,5 +1,12 @@
 main {
   background-image: url(AdobeStock_365976066.jpeg);
   background-size: cover;
-  
+  color: white;
+}
+
+.images {
+   height: 350px;
+   width: 750px;
+   margin-top: 50px;
+   
 }
