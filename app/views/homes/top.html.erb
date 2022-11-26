@@ -1,8 +1,8 @@
 
 <div class="container">
-  <div class="row py-3">
+  <div class="row pt-5">
     <div class="col-md-2 ">
-      <table class="table table-bordered">
+      <table class="table table-bordered" style="color:white;">
         <thead>
           <tr align="center">
            <th scope="col">ジャンル検索</th>
@@ -21,7 +21,7 @@
      <div class="pt-5 img-fluid" style="background: url(<%= asset_path "top.jpg" %>); background-size: cover; height: 100%;">
       <div class="container col-8 py-3 mt-5 text-center" style="background-color:rgba(255,255,255,0.5);">
        <h3 style="color:black;padding-top:10px"><strong>ようこそ、ながのCAKEへ！</strong></h3><br />
-        <p style=padding-bottom:10px><strong>
+        <p style="padding-bottom:10px; color:black;"><strong>
        このサイトは、ケーキ販売のECサイトになります。<br />
        会員でない方も商品の閲覧はできますが、<br />
        購入には会員登録が必要になります。
@@ -31,9 +31,9 @@
     </div>
    </div>
   <div>
-  <div class="row-md-9 offset-md-3 p-3 text-start">
+  <div class="row-md-9 offset-md-3 p-3 text-start" style="color:white; display:flex;">
 
-    <h3><strong>新着商品</strong></h3>
+    <h3 style="color:#FF82B2;"><strong>新着商品</strong></h3><h6 style="color:red">new</h6>
    </div>
   </div>
 
@@ -52,7 +52,7 @@
      <% end %>
     </div>
    </div>
-      <div class="row pr-5">
+      <div class="row pr-5 py-3">
         <div class="col-md-12 text-right mt-3 mr-5 pr-5">
           <%= link_to "全ての商品を見る＞", "/public/items"%>
       </div>

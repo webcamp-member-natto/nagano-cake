@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+　　<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,7 +13,6 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container border-bottom">
             <a class="navbar-brand text-dark" href="/"><%=image_tag "header_logo", size:"250x100" %></a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +22,7 @@
                  <ul class="navbar-nav ml-auto ">
 
                    <% if customer_signed_in? %>
-                    <div class = "d-flex align-items-end">ようこそ、<%= current_customer.last_name %>さん!</div>
+                    <div class = "d-flex align-items-center" style="font-size:20px">ようこそ、<%= current_customer.last_name %>さん!!</div>
                      <li>
 
                        <%=link_to  public_customers_my_page_path, class:"nav-link text-dark btn btn-outline-secondary mx-2" do %>
@@ -106,23 +105,21 @@
                    <%end%>
                 </ul>
             </div>
-        </div>
-      </nav>
-
-      <div class="col-2 d-flex mx-auto py-4">
-         <input class="form-control" type="search" placeholder="文字を入力" aria-label="Search">
-         <button class="btn bg-info ml-2" type="submit">Search</button>
-      </div>
+            <div class="col-2 d-flex mx-auto">
+             <input class="form-control" type="search" placeholder="文字を入力" aria-label="Search">
+             <button class="btn bg-info ml-2" type="submit">Search</button>
+           </div>
+       </nav>
     </header>
 
     <main>
+
       <%= yield %>
+
     </main>
 
     <footer class="footer">
- 　　　 <div class="container border-top">
    　　 <p style= "text-align: center;">@NaganoCake</p>
-  　　</div>
 　　</footer>
 
   </body>

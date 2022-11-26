@@ -1,17 +1,17 @@
-<div class="container">
+<div class="container pb-3">
+  <%= flash[:alert] %>
   <div class="row">
     <div style="text-align: center;">
-    <%= flash[:alert] %>
      </div>
     <div class="col">
-      <h4 class="m-4 text-center font-weight-bold">マイページ</h4>
+      <h2 class="m-4 text-center font-weight-bold">マイページ</h2>
     </div>
   </div>
-  <div class="row">
-    <h4 class="mb-3">登録情報編集
-      <%= link_to "編集する", public_customers_information_edit_path, class: "btn btn-success" %>
-    </h4>
-     <table class="table">
+  <div class="row text-center">
+    <div class="mb-3 d-flex mx-auto">
+    <%= link_to "編集する", public_customers_information_edit_path, class: "btn btn-lg btn-success" %>
+    </div>
+     <table class="table" style="color:white;">
         <tbody>
           <tr>
              <th scope="row">氏名</th>
@@ -49,16 +49,17 @@
             </td>
           </tr>
         </tbody>
-       </table>
+      </table>
+       
        </div>
-       <div class="row mb-3">
+       <div class="row mb-3" style="color:white;">
+         <div class="col offset-1">
          <strong>配送先</strong>
-         <div class="col">
          <%= link_to "一覧を見る", public_shipping_addresses_path, class: "btn btn-primary" %>
          </div>
-       <div class="col">
+       <div class="col offset-1">
          <strong>注文履歴</strong>
          <%= link_to "一覧を見る", public_orders_path, class: "btn btn-primary" %>
          </div>
-         </div>
-          </div>
+        </div>
+      </div>

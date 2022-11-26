@@ -4,7 +4,7 @@
    <h4 class="m-4 d-flex justify-content-between  font-weight-bold">商品一覧
    <%=link_to "+", new_admin_item_path, class: "btn btn-secondary rounded-pill" %></h4>
    </div>
-          <table class='table table-hover table-inverse'>
+          <table class='table table-hover table-inverse' style="color:white;">
             <thead>
               <tr>
                 <th>商品ID</th>
@@ -20,7 +20,7 @@
                 <tr>
                   <td><%= item.id %></td>
                   <td>
-                    <%=link_to admin_item_path(item.id), class: "text-dark" do %>
+                    <%=link_to admin_item_path(item.id), class: "text-white" do %>
                       <%= item.name %>
                     <% end %>
                   </td>
