@@ -3,7 +3,7 @@
   <div class="col">
    <h4 class="m-4 text-center font-weight-bold">会員一覧</h4>
   </div>
-   <table class="table" style="color:white;">
+   <table class="table text-center" style="color:white;">
     <thead class="thead-dark">
       <tr>
         <th scope="col">会員ID</th>
@@ -12,7 +12,7 @@
         <th scope="col">ステータス</th>
       </tr>
     </thead>
-    
+
     <tbody>
      <% @customers.each do |customer| %>
      <tr>
@@ -24,7 +24,7 @@
         <% end %>
       <td>
         <% if customer.is_deleted %>
-         <p class="text-black-50"><strong>退会済</strong></p>
+         <p class="text-danger"><strong>退会済</strong></p>
          <% else %>
          <p class="text-success"><strong>有効</strong></p>
          <% end %>

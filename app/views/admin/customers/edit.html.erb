@@ -1,14 +1,16 @@
-<div class="container">
+<div class="container pb-5">
  <div class="row">
-  <div class="col">
-   <h4 class="m-4 text-center font-weight-bold">
+  <div class="col-12 py-3 text-center ">
+   <h3 class="m-4 font-weight-bold">
     <%= @customer.last_name %><% @customer.first_name %>さんの会員詳細
-   </h4>
+   </h3>
+  </div>
   </div>
 
-
-　<table class="table table-striped" style="color:white;">
- 　 <tbody>
+  <div class="row d-flex justify-content-center">
+   <div class="col-md-8">
+    <table class="table table-striped text-center" style="color:white;">
+   　 <tbody>
  　　  <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
  　　  <tr>
  　　    <th>会員ID</th>
@@ -16,12 +18,15 @@
  　　  </tr>
  　　  <tr>
  　　    <th>氏名</th>
- 　　    <td><%= f.text_field :last_name %> <%= f.text_field :first_name %>
+ 　　    <td><%= f.text_field :last_name %></br>
+ 　　        <%= f.text_field :first_name %>
  　　    </td>
  　　  </tr>
  　　  <tr>
  　　    <th>フリガナ</th>
- 　　    <td><%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></td>
+ 　　    <td><%= f.text_field :last_name_kana %></br>
+ 　　        <%= f.text_field :first_name_kana %>
+ 　　   </td>
  　　  </tr>
  　　  <tr>
  　　    <th>郵便番号</th>
@@ -51,9 +56,11 @@
      </tr>
     </tbody>
    </table>
-   <div class="container text-center">
+   </div>
+   </div>
+
+   <div class="row d-flex justify-content-center">
     <%= f.submit "変更を保存", class: "btn btn-success"%>
     <% end %>
   </div>
  </div>
-</div>

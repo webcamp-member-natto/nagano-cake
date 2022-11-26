@@ -1,5 +1,5 @@
 <div class="container py-4">
-    <h2 class="text-center my-4">注文情報入力</h2>
+    <h2 class="text-center my-4"><strong>注文情報入力</strong></h2>
 
       <div>
         <% if @order.errors.any? %>
@@ -18,11 +18,12 @@
         <% end %>
       </div>
 
-
+       <div class="row">
+         <div class="col">
         <%= form_with model: @order, url:public_comfirm_path do |f| %>
-          <table style="color:white;">
+         <table class="table table-borderless" style="color:white; margin: auto;">
             <tr>
-              <th>
+              <th style="vertical-align: middle; text-align: center;">
                 <h5><strong>支払い方法</strong></h5>
               </th>
               <td>
@@ -35,16 +36,14 @@
             </tr>
 
             <tr>
-              <th>
+              <th style="vertical-align: middle;text-align: center;">
                 <h5><strong>お届け先</strong></h5>
               </th>
               <td>
-                  <div class="mt-5 mb-3">
                     <%= radio_button_tag :select_address, 0, :checked => true %>
                     <%= f.label :select_address_0, "ご自身の住所" %><br>
                     〒<%= @customer.postal_code %>　<%= @customer.address %><br>
                     <%= @customer.last_name %><%= @customer.first_name %>
-                  </div>
               </td>
             </tr>
 
@@ -89,8 +88,11 @@
               </td>
             </tr>
           </table>
+          </div>
+        </div>
           <div style="text-align:center;">
             <%= f.submit "確認画面へ進む", class: 'btn btn-primary' %>
           </div>
         <% end %>
+    
 </div>

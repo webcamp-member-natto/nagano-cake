@@ -1,8 +1,7 @@
-<div class='container'>
+<div class='container py-5'>
  <div class="row">
-　<h4 class="col-lg-3 mb-5 mt-3 d-flex mx-auto">
-   <span class="py-2 px-4 bg-ligh alert-secondary">商品詳細</span></h4>
-   
+  <h4 class="col mt-3 text-center font-weight-bold">商品詳細</h4>
+  </div>
      <% if @item.errors.any? %>
       <%= @item.errors.count %>件のエラーが発生しました
       <ul>
@@ -12,9 +11,11 @@
       </ul>
      <% end %>
   </div>
-  
-  <table style="margin:auto; color:while;">
-   <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
+
+  <div class="row d-flex justify-content-center">
+   <div class"col-md-6">
+    <table class="table text-center" style="color:white;">
+    <%= form_with model: @item, url: admin_item_path, method: :patch do |f| %>
     <tbody>
      <tr>
       <th>
@@ -67,13 +68,12 @@
        <%= f.label :status, "販売停止中", {value: :false, style: "display: inline-block;"} %>
       </div></td>
      </tr>
-     <tr>
-      <th></th>
-      <td><%= f.submit "変更を保存", class: 'btn btn-success' %></td>
-     </tr>
     </tbody>
    </table>
-   <% end %>
    </div>
+   </div>
+  <div class="row pb-5 d-flex justify-content-center">
+   <%= f.submit "変更を保存", class: 'btn btn-success' %>
+    <% end %>
   </div>
 </div>
