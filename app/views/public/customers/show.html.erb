@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row" style="color:white;">
     <div style="text-align: center;">
     <%= flash[:alert] %>
      </div>
@@ -7,11 +7,11 @@
       <h4 class="m-4 text-center font-weight-bold">マイページ</h4>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="color:white;">
     <h4 class="mb-3">登録情報編集
       <%= link_to "編集する", public_customers_information_edit_path, class: "btn btn-success" %>
     </h4>
-     <table class="table">
+     <table class="table" style="color:white;">
         <tbody>
           <tr>
              <th scope="row">氏名</th>
@@ -51,7 +51,7 @@
         </tbody>
        </table>
        </div>
-       <div class="row mb-3">
+       <div class="row mb-3" style="color:white;">
          <strong>配送先</strong>
          <div class="col">
          <%= link_to "一覧を見る", public_shipping_addresses_path, class: "btn btn-primary" %>

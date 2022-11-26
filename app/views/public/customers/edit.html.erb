@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div class="row" style="color:white;">
+    <div class="col style="color:white;"">
       <h4 class="m-4 text-center font-weight-bold">会員情報編集</h4>
       <% if @customer.errors.any? %>
         <%= @customer.errors.count %>件のエラーが発生しました
@@ -12,13 +12,14 @@
       <% end %>
     </div>
   </div>
- <table class="table table-striped">
+ <table class="table table-striped"  style="color:white;">
   <%= form_with model: @customer, url: public_information_path, method: :patch do |f| %>
    <tr>
      <div class="field">
       <th>名前</th>
       <td><%= f.text_field :last_name, autofocus: true %></td>
       <td><%= f.text_field :first_name %></td>
+      </div>
    </tr>
    <tr>
      <div class="field">
@@ -32,6 +33,7 @@
      <th><%= f.label "メールアドレス"%></th>
      <td><%= f.email_field :email %></td>
      <td></td>
+     </div>
    </tr>
    <tr>
     <div class="field">
