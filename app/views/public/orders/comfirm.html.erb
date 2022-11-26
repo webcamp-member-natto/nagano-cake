@@ -1,14 +1,17 @@
 <div class="container">
-        <span style="background-color:lightgrey; font-size:30px;">注文情報確認</span>
-              <table class="table">
+      <h3 class="text-center my-4">注文情報確認</h3>
+        <div class="row mb-3 justify-content-center">
+    　     <div clas ="col-md-8">
+              <table class="table table-bordered ">
                   <thead>
-                    <tr>
+                    <tr class="table-secondary text-center">
                       <th scope="col">商品名</th>
                       <th scope="col">単価(税込)</th>
                       <th scope="col">数量</th>
                       <th scope="col">小計</th>
                     </tr>
                   </thead>
+
                   <tbody>
                     <% sum = 0 %>
                     <% @cart_items.each do |cart| %>
@@ -24,39 +27,49 @@
                     <% end %>
                   </tbody>
               </table>
+          </div>
 
-              <table class="table">
+          <div class ="col-lg-3 offset-1">
+              <table class="table table-bordered">
                 <tbody>
                   <tr>
-                  <th scope="col">送料</th>
-                  <td><%= @postage.to_s(:delimited) %>円</td>
-                  <th scope="col">商品合計</th>
-                  <td><%= sum.to_s(:delimited) %>円</td>
-                  <th scope="col">請求金額</th>
-                  <td><%= (sum + @postage).to_s(:delimited) %>円</td>
+                    <th class="table-secondary text-center">送料</th>
+                    <td><%= @postage.to_s(:delimited) %>円</td>
+                  </tr>
+                  <tr>
+                    <th class="table-secondary text-center">商品合計</th>
+                    <td><%= sum.to_s(:delimited) %>円</td>
+                  </tr>
+                  <tr>
+                    <th class="table-secondary text-center">請求金額</th>
+                    <td><%= (sum + @postage).to_s(:delimited) %>円</td>
                   </tr>
                 </tbody>
               </table>
-              <table>
+          </div>
+        </div>
+
+      <div class="row justify-content-center">
+          <div class="col-md-10">
+              <table class="table table-bordered">
                    <tbody>
                       <tr>
-                        <div class="field">
-                          <th>支払方法</th>
+                          <th class="table-secondary text-center">支払方法</th>
                           <td><%= @order.payment_method_i18n %></td>
-                        </div>
                       </tr>
                       <tr>
-                        <div class="field">
-                          <th>お届け先</th>
-                          <td>〒<%= @order.postal_code %>　<%= @order.address %><br>
+                          <th class="table-secondary text-center">お届け先</th>
+                          <td>〒<%= @order.postal_code %><br>
+                              <%= @order.address %><br>
                               <%= @order.name %>
                           </td>
-                        </div>
                       </tr>
                   </tbody>
               </table>
+          </div>
+      </div>
 
-          <div ciass="row text-center">
+          <div style="text-align:center;">
               <!-- ユーザーには注文確定ボタンだけ表示 -->
               <%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
                 <%= f.hidden_field :payment_method %>
@@ -66,7 +79,7 @@
                 <%= f.hidden_field :postage, value: @postage %>
                 <%= f.hidden_field :price, value: sum + @postage %>
                 <%= f.hidden_field :customer_id, value: current_customer.id %>
-                <%= f.submit "注文を確定する", class:'btn btn-primary' %>
+                <%= f.submit "注文を確定する", class:'btn btn-success' %>
               <% end %>
           </div>
 </div>
