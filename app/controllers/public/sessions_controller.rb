@@ -2,14 +2,13 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
-  
+
   def after_customer_sign_out_path_for
     about_path
-    flash[:notice] = "ログイン完了しました" 
   end
 
   # before_action :configure_sign_in_params, only: [:create]
-  
+
   # GET /resource/sign_in
   # def new
   #   super
