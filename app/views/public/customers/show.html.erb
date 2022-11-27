@@ -1,8 +1,12 @@
-<div class="container pb-3">
-  <%= flash[:alert] %>
-  <div class="row">
-    <div style="text-align: center;">
-     </div>
+<div class="container py-5">
+ <div class="col  pb-0">
+    <div style="text-align:center;">
+   <% if flash[:notice] %>
+      <div class="alert alert-success" role="alert"><%= link_to flash[:notice], class: "text-succeess" %></div>
+    <% end %>   
+   </div>
+  </div>
+    <div class="row">
     <div class="col">
       <h2 class="m-4 text-center font-weight-bold">マイページ</h2>
     </div>
@@ -50,7 +54,7 @@
           </tr>
         </tbody>
       </table>
-       
+
        </div>
        <div class="row mb-3" style="color:white;">
          <div class="col offset-1">
@@ -63,3 +67,4 @@
          </div>
         </div>
       </div>
+     

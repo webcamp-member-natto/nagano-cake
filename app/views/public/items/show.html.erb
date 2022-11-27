@@ -1,7 +1,9 @@
 <div class="container py-5">
  <div class="col  pb-0">
   <div style="text-align:center;">
-   <%= flash[:alert]  %>
+  <% if flash[:alert] %>
+   <div class="alert alert-danger" role="alert"><%= link_to flash[:alert], new_customer_registration_path,class: "text-danger" %></div>
+    <% end %>
   </div>
  </div>
   <div class="row my-2 py-5 ">
