@@ -5,6 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   
   def after_customer_sign_out_path_for
     about_path
+    flash[:notice] = "ログイン完了しました" 
   end
 
   # before_action :configure_sign_in_params, only: [:create]
