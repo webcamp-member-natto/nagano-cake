@@ -1,9 +1,9 @@
 class Admin::ItemsController < ApplicationController
-  
+
   before_action :authenticate_admin!
-  
+
   def index
-    @items = Item.page(params[:page]).all
+    @items = Item.page(params[:page]).order("created_at DESC")
   end
 
   def new
@@ -13,7 +13,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item =Item.new(item_params)
     if @item.save
-      flash[:notice] = "商品を登録しました！"
+      flash[:alart] = "商品を登録しました！"
       redirect_to admin_item_path(@item.id)
     else
     render :new
